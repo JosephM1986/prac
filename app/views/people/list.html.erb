@@ -1,0 +1,22 @@
+<!--
+<% Person.all.each do |person| %>
+  <h3><%= person.first_name %></h3>
+  <h3><%= person.last_name %></h3>
+<% end %>
+  -->
+
+  <h1>People</h1>
+  <%= form_tag people_path, :method => 'get' do %>
+  <p>
+  <%= text_field_tag :search, params[:search] %>
+  <%= submit_tag 'Search', name: nil %>
+<% end %>
+
+<% @people.each do |people| %>
+<% @organisation.each do |org| %>
+<%= people.first_name %>
+<%= people.last_name %>
+<%= org.title %>
+
+<% end %>
+<% end %>
