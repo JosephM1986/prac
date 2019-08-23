@@ -7,22 +7,39 @@ class PeopleController < ApplicationController
     @people = Person.all
     @organisation = Organisation.all
   end
+
   # @orginsation = Organisation.search(params[:search])
+  def edit
+    @people = Person.find(params[:id])
+  end
 
   def list
     @people = Person.all
   end
 
-  def new; end
+  def new
+    @people = Person.new
+  end
 
   def create
     @people = Person.new(people_params)
 
-    @people.save
-    redirect_to @people
+    if @people.save
+      redirect_to @people
+    else
+      render 'new'
   end
+end
 
-  def update; end
+  def update
+    @people = Person.find(params[:id])
+
+    if @people.update(people_params)
+      redirect_to @people
+    else
+      render 'edit'
+    end
+  end
 
   def delete; end
 

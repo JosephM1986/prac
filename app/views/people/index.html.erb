@@ -13,6 +13,7 @@
           <td><%= people.first_name %></td>
           <td><%= people.last_name %></td>
           <td><%= link_to 'show', person_path(people) %></td>
+          <td><%= link_to 'Edit person', edit_person_path(people) %></td>
         </tr>
         <% end %>
       </table>
