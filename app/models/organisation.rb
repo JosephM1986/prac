@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class Organisation < ApplicationRecord
-  has_many :person
+  belongs_to :people
 
   # def self.search(searches)
   #   if searches

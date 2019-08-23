@@ -1,36 +1,5 @@
 <h1>Edit Person</h1>
 
-<%= form_with(model: @people, local: true) do |form| %>
-
-  <% if @people.errors.any? %>
-    <div id="error_explanation">
-      <h2>
-        <%= pluralize(@people.errors.count, "error") %>
-        Prohibited
-        this person from being saved:
-      </h2>
-      <ul>
-        <% @people.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-        <% end %>
-      </ul>
-    </div>
-    <% end %>
-
-    <p>
-      <%= form.label :first_name %><br>
-      <%= form.text_field :first_name %>
-    </p>
-
-    <p>
-      <%= form.label :last_name %><br>
-      <%= form.text_field :last_name %>
-    </p>
-
-    <p>
-      <%= form.submit %>
-    </p>
-
-    <% end %>
+<%= render 'form' %>
 
     <%= link_to 'Back', people_path %>

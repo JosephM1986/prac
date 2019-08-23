@@ -4,11 +4,10 @@ class PeopleController < ApplicationController
   def index
     @people = Person.search(params[:search])
 
-    @people = Person.all
-    @organisation = Organisation.all
+    # @people = Person.all was conflicting with the search function
+    # as it was not returning any of the listings
   end
 
-  # @orginsation = Organisation.search(params[:search])
   def edit
     @people = Person.find(params[:id])
   end
@@ -41,15 +40,21 @@ end
     end
   end
 
-  def delete; end
-
   def show
     @people = Person.find(params[:id])
   end
 
+  def destroy
+    @people = Person.find(params[:id])
+    @people.destroy
+
+    redirect_to people_path
+   end
+
   private
 
   def people_params
-    params.require(:people).permit(:first_name, :last_name, :search)
+    params.require(:people).permit(:first_name, :last_name, :assessment_count,
+                                   :organisation_id, :id, :search)
   end
 end

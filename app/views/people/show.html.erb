@@ -11,5 +11,15 @@
   <strong>Assessment Count:</strong>
   <%= @people.assessment_count %>
 </p>
+<p>
+  <strong>Organisation ID:</strong>
+  <%= @people.organisation_id %>
+</p>
 
+
+
+  
+
+
+<%= link_to 'Edit', edit_person_path(@people) %>
 <%= link_to 'Back', people_path %>
