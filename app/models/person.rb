@@ -3,11 +3,11 @@
 class Person < ApplicationRecord
   has_many :organsations
   validates :assessment_count, length: { is: 1 }, allow_blank: true
-  validates :first_name, presence: true, if: :should_validate?
+  # validates :first_name, presence: true, if: :should_validate?
 
-  def should_validate?
-    new_record || first_name.present?
-  end
+  # def should_validate?
+  #   new_record || first_name.present?
+  # end
 
   def self.search(search)
     if search
