@@ -1,8 +1,7 @@
 Rails.application.routes.draw do
-  get 'organisation/list'
-  get 'organisation/show'
-  get 'organisation/new'
+
 root :to => 'people#index'
+resources :people
 
 
 

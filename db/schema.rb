@@ -23,9 +23,10 @@ ActiveRecord::Schema.define(version: 2019_08_21_235222) do
     t.string "first_name"
     t.string "last_name"
     t.integer "assessment_count"
-    t.datetime "created_at", null: false
+    t.decimal "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "organisation_id"
+    t.integer "organisation_id_id"
+    t.index ["organisation_id_id"], name: "index_people_on_organisation_id_id"
   end
 
 end
